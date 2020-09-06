@@ -52,4 +52,3 @@ class BaseViewController: UIViewController {
         collectionView.dataSource = self
     }
 }
-

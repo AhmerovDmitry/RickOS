@@ -39,7 +39,8 @@ class BaseViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(cellButton)
+        [cellButton, addButton].forEach( { contentView.addSubview($0) })
+        
         cellButton.topAnchor.constraint(equalTo: contentView.topAnchor,
                                         constant: 5).isActive = true
         cellButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
@@ -49,7 +50,6 @@ class BaseViewCell: UICollectionViewCell {
         cellButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
                                            constant: -85).isActive = true
         
-        contentView.addSubview(addButton)
         addButton.topAnchor.constraint(equalTo: contentView.topAnchor,
                                         constant: 0).isActive = true
         addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
