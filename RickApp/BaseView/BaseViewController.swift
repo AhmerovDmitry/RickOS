@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
     // MARK: - backgroundImage
     fileprivate let backgroundImage: UIImageView = {
         var img = UIImageView()
-        img = UIImageView(image: #imageLiteral(resourceName: "background_main"))
+        img = UIImageView(image: UIImage(named: "backgroundMain"))
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false
         
