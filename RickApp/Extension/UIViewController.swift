@@ -11,11 +11,13 @@ import UIKit
 
         view.addSubview(child.view)
         child.didMove(toParent: self)
+        print("Controller \(child) - init")
     }
 
-    func remove() {
+    func remove(controller: UIViewController) {
         willMove(toParent: nil)
         view.removeFromSuperview()
         removeFromParent()
+        print("Controller \(controller) - deinit")
     }
 }

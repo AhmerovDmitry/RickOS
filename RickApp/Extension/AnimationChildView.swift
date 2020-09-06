@@ -23,7 +23,7 @@ extension BaseViewController {
                             self.children[0].view.frame.origin.y += 368
             },
                            completion: { _ in
-                            self.children[0].remove()
+                            self.children[0].remove(controller: self)
                             print("Child controller deinit")
             })
         }

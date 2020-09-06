@@ -55,5 +55,10 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     func chatRickButton() {
         print("chatRickButton")
+        let chatView = ChatViewController()
+        chatView.modalPresentationStyle = .overFullScreen
+        present(chatView, animated: true, completion: {
+            self.remove(controller: self)
+        })
     }
 }
