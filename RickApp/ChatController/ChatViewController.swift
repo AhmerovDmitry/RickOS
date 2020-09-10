@@ -13,7 +13,9 @@ class ChatViewController: UIViewController {
         let tv = UITableView(frame: .zero, style: .plain)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.separatorStyle = .none
-        tv.backgroundColor = .clear
+        tv.alpha = 0.5
+        //tv.backgroundColor = .clear
+        tv.backgroundColor = .green
         tv.register(ChatViewCell.self, forCellReuseIdentifier: "cell")
         
         return tv
@@ -29,8 +31,9 @@ class ChatViewController: UIViewController {
     }()
     
     let doneButton: UIButton = {
-        let btn = UIButton(type: .close)
+        let btn = UIButton(type: .system)
         btn.backgroundColor = .red
+        btn.setTitle("🔈", for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(done), for: .touchUpInside)
         
@@ -40,7 +43,6 @@ class ChatViewController: UIViewController {
     @objc func done() {
         textField.resignFirstResponder()
     }
-    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +56,10 @@ class ChatViewController: UIViewController {
         background.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
 
        [tableView, textField, doneButton].forEach( { background.addSubview($0) })
-        tableView.topAnchor.constraint(equalTo: background.topAnchor, constant: 0).isActive = true
+        tableView.topAnchor.constraint(equalTo: background.topAnchor, constant: 80).isActive = true
         tableView.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -50).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -60).isActive = true
         tableView.delegate = self
         tableView.dataSource = self
 

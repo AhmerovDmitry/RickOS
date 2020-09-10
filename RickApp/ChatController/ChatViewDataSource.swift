@@ -26,10 +26,19 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, UIText
     @objc func keyboardWillShow(notification: Notification) {
         //let userInfo = notification.userInfo
         //guard let keyboardFrameSize = (userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        doneButton.setTitle("🔇", for: .normal)
         background.bounds.origin = CGPoint(x: 0, y: 271)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 351).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
+        print("Touch textField")
     }
     @objc func keyboardWillHide(notification: Notification) {
-        background.bounds.origin = CGPoint.zero
-
+        background.bounds.origin = CGPoint(x: 0, y: 0)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
     }
 }
