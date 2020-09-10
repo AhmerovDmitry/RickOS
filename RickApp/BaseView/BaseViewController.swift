@@ -3,7 +3,7 @@ import UIKit
 // MARK: - BaseViewController
 class BaseViewController: UIViewController {
     // MARK: - Properties
-    let cellCornerRadius: CGFloat = 40
+    static let cellCornerRadius: CGFloat = 40
     var isMove = false
     let data = [
         BaseViewData(text: "", image: nil),
@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
 
         return cv
     }()
-    // MARK: - backgroundImage
+    // MARK: - tableView
     fileprivate let backgroundImage: UIImageView = {
         var img = UIImageView()
         img = UIImageView(image: UIImage(named: "backgroundMain"))

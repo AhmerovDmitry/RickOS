@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BC0FAC50250561D100DB1A11 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */; };
+		BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB2250A1967005171CC /* ChatViewCell.swift */; };
+		BCC18BB5250A1DFD005171CC /* ChatViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */; };
 		BCF045FA2503F64C003BBF99 /* BaseViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF045F92503F64C003BBF99 /* BaseViewCellModel.swift */; };
 		BCF38DA42503C4A900C949A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DA32503C4A900C949A0 /* AppDelegate.swift */; };
 		BCF38DA62503C4A900C949A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DA52503C4A900C949A0 /* SceneDelegate.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		BCC18BB2250A1967005171CC /* ChatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
+		BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewDataSource.swift; sourceTree = "<group>"; };
 		BCF045F92503F64C003BBF99 /* BaseViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewCellModel.swift; sourceTree = "<group>"; };
 		BCF38DA02503C4A900C949A0 /* RickApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF38DA32503C4A900C949A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */,
+				BCC18BB2250A1967005171CC /* ChatViewCell.swift */,
+				BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */,
 			);
 			path = ChatController;
 			sourceTree = "<group>";
@@ -221,8 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */,
 				BCF38DA42503C4A900C949A0 /* AppDelegate.swift in Sources */,
 				BCF38DCA2503C8F700C949A0 /* DetailPopCell.swift in Sources */,
+				BCC18BB5250A1DFD005171CC /* ChatViewDataSource.swift in Sources */,
 				BCF38DA62503C4A900C949A0 /* SceneDelegate.swift in Sources */,
 				BCF38DCC2503C90500C949A0 /* DetailPopDataSource.swift in Sources */,
 				BCF38DC82503C8D000C949A0 /* DetailPopController.swift in Sources */,

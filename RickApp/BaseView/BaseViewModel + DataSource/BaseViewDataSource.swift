@@ -21,7 +21,7 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BaseViewCell
         cell.cellButton.addTarget(self, action: #selector(showController), for: .touchUpInside)
         cell.data = self.data[indexPath.row]
-        cell.layer.cornerRadius = cellCornerRadius
+        cell.layer.cornerRadius = BaseViewController.cellCornerRadius
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 2
         
