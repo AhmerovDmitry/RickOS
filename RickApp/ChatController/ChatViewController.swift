@@ -1,31 +1,24 @@
 import UIKit
 
 class ChatViewController: UIViewController {
-    let background: UIView = {
-        let img = UIView()
-        img.translatesAutoresizingMaskIntoConstraints = false
-        img.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
-        
-        return img
-    }()
+    let messages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
     let tableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .plain)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.separatorStyle = .none
-        tv.alpha = 0.5
-        //tv.backgroundColor = .clear
-        tv.backgroundColor = .green
+        tv.backgroundColor = .clear
         tv.register(ChatViewCell.self, forCellReuseIdentifier: "cell")
         
         return tv
     }()
     
-    let textField: UITextField = {
-        var textField = UITextField()
+    let textField: UITextView = {
+        var textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isScrollEnabled = false
         textField.backgroundColor = .yellow
-        textField.placeholder = "This is textField"
+        //textField.placeholder = "This is textField"
         
         return textField
     }()
@@ -33,7 +26,7 @@ class ChatViewController: UIViewController {
     let doneButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .red
-        btn.setTitle("🔈", for: .normal)
+        btn.setTitle("⚪️", for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(done), for: .touchUpInside)
         
@@ -41,41 +34,31 @@ class ChatViewController: UIViewController {
     }()
     
     @objc func done() {
-        textField.resignFirstResponder()
+        view.endEditing(true)
     }
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ChatViewController init")
         registerForKeyboardNotification()
-        
-        view.addSubview(background)
-        background.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        background.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        background.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        background.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
 
-       [tableView, textField, doneButton].forEach( { background.addSubview($0) })
-        tableView.topAnchor.constraint(equalTo: background.topAnchor, constant: 80).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -60).isActive = true
+       [tableView, textField, doneButton].forEach( { view.addSubview($0) })
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         tableView.delegate = self
         tableView.dataSource = self
 
-        textField.topAnchor.constraint(equalTo: background.topAnchor, constant: 686).isActive = true
-        textField.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 0).isActive = true
-        textField.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0).isActive = true
-        textField.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: 0).isActive = true
+        textField.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0).isActive = true
+        textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60).isActive = true
+        textField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
 
-        doneButton.topAnchor.constraint(equalTo: background.topAnchor, constant: 686).isActive = true
-        doneButton.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 364).isActive = true
-        doneButton.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 0).isActive = true
-        doneButton.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: 0).isActive = true
-
-        print("width - \(doneButton.frame.width)")
-        print("height - \(doneButton.frame.height)")
-        print("view width - \(view.frame.width)")
-        print("view height - \(view.frame.height)")
+        doneButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0).isActive = true
+        doneButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 364).isActive = true
+        doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        doneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
     }
 }
