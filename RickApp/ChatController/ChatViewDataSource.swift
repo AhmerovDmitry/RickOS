@@ -30,14 +30,12 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, UIText
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let keyboardFrameSize = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        self.view.frame.size.height = UIScreen.main.bounds.height - keyboardFrameSize.height - 44
-        doneButton.setTitle("🔴", for: .normal)
-        
+//        guard let userInfo = notification.userInfo else { return }
+//        guard let keyboardFrameSize = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        self.view.frame.size.height = UIScreen.main.bounds.height - 271
+        //self.view.frame.size.height = UIScreen.main.bounds.height - keyboardFrameSize.height - 44
     }
     @objc func keyboardWillHide(notification: Notification) {
         self.view.frame.size.height = UIScreen.main.bounds.height
-        doneButton.setTitle("⚪️", for: .normal)
     }
 }

@@ -14,28 +14,41 @@ class ChatViewController: UIViewController {
     }()
     
     let textField: UITextView = {
-        var textField = UITextView()
+        let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.isScrollEnabled = false
+        textField.isScrollEnabled = true
         textField.backgroundColor = .yellow
-        //textField.placeholder = "This is textField"
-        
+
         return textField
     }()
     
-    let doneButton: UIButton = {
+    var doneButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .red
-        btn.setTitle("⚪️", for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(done), for: .touchUpInside)
+//        if textField.text == "" {
+//            btn.setTitle("🔴", for: .normal)
+//        } else {
+//            btn.setTitle("⚪️", for: .normal)
+//        }
         
         return btn
     }()
     
+//    let doneButton: UIButton = {
+//        let btn = UIButton(type: .system)
+//        btn.backgroundColor = .red
+//        btn.translatesAutoresizingMaskIntoConstraints = false
+//        btn.addTarget(self, action: #selector(done), for: .touchUpInside)
+//
+//        return btn
+//    }()
+    
     @objc func done() {
         view.endEditing(true)
     }
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
