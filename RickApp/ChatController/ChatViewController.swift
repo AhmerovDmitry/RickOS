@@ -13,7 +13,7 @@ class ChatViewController: UIViewController {
         return tv
     }()
     
-    let textField: UITextView = {
+    let textView: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.isScrollEnabled = true
@@ -27,23 +27,9 @@ class ChatViewController: UIViewController {
         btn.backgroundColor = .red
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(done), for: .touchUpInside)
-//        if textField.text == "" {
-//            btn.setTitle("🔴", for: .normal)
-//        } else {
-//            btn.setTitle("⚪️", for: .normal)
-//        }
         
         return btn
     }()
-    
-//    let doneButton: UIButton = {
-//        let btn = UIButton(type: .system)
-//        btn.backgroundColor = .red
-//        btn.translatesAutoresizingMaskIntoConstraints = false
-//        btn.addTarget(self, action: #selector(done), for: .touchUpInside)
-//
-//        return btn
-//    }()
     
     @objc func done() {
         view.endEditing(true)
@@ -56,18 +42,18 @@ class ChatViewController: UIViewController {
         registerForKeyboardNotification()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
 
-       [tableView, textField, doneButton].forEach( { view.addSubview($0) })
+       [tableView, textView, doneButton].forEach( { view.addSubview($0) })
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50).isActive = true
         tableView.delegate = self
         tableView.dataSource = self
 
-        textField.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0).isActive = true
-        textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60).isActive = true
-        textField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        textView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0).isActive = true
+        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60).isActive = true
+        textView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
 
         doneButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0).isActive = true
         doneButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 364).isActive = true
