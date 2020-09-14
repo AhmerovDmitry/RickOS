@@ -2,6 +2,7 @@ import UIKit
 
 class ChatViewController: UIViewController {
     var messages: [String] = []
+    
     let tableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .plain)
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -33,9 +34,10 @@ class ChatViewController: UIViewController {
         btn.layer.cornerRadius = 15
         btn.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         btn.tintColor = .white
+        btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         btn.contentHorizontalAlignment = .fill
         btn.contentVerticalAlignment = .fill
-        btn.imageView?.contentMode = .scaleAspectFit
+        btn.imageView?.contentMode = .scaleAspectFill
         
         return btn
     }()
@@ -53,6 +55,7 @@ class ChatViewController: UIViewController {
         print("ChatViewController init")
         registerForKeyboardNotification()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
+        
 
        [tableView, textView, doneButton].forEach( { view.addSubview($0) })
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true

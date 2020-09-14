@@ -36,6 +36,10 @@ class BaseViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.white
+        self.navigationItem.title = "Table"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
                 
         [backgroundImage, collectionView].forEach { view.addSubview($0) }
         
