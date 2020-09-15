@@ -10,6 +10,7 @@ extension BaseViewController {
                            options: .curveEaseOut,
                            animations: {
                             self.children[0].view.frame.origin.y = 368
+                            //self.children[0].view.frame.origin.y = UIScreen.main.bounds.height - 280
             })
         
         case false:
