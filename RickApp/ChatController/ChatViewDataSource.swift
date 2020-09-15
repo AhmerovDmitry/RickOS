@@ -43,4 +43,12 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, UIText
             self.view.layoutIfNeeded()
         })
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text == "" {
+            doneButton.isEnabled = false
+        } else {
+            doneButton.isEnabled = true
+        }
+    }
 }

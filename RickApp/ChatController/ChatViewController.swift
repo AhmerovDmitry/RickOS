@@ -55,6 +55,7 @@ class ChatViewController: UIViewController {
         tableView.reloadData()
         textView.text = ""
         view.endEditing(true)
+        doneButton.isEnabled = false
     }
     
     let topLabel: UILabel = {
@@ -62,7 +63,7 @@ class ChatViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.textAlignment = .center
-        label.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         label.text = "Rick Sanchez"
         
         return label
@@ -73,6 +74,7 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         print("ChatViewController init")
         registerForKeyboardNotification()
+        doneButton.isEnabled = false
         
         view.addSubview(backgroundView)
         backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
@@ -92,6 +94,7 @@ class ChatViewController: UIViewController {
         textView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 5).isActive = true
         textView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -40).isActive = true
         textView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10).isActive = true
+        textView.delegate = self
 
         doneButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10).isActive = true
         doneButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 379).isActive = true
