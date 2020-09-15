@@ -48,8 +48,6 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 extension BaseViewController {
     @objc func showController() {
         isMove = !isMove
-        showChildController(shouldMove: isMove, controller: DetailPopController())
-        
-        print(backgroundView.frame.size)
+        showChildController(shouldMove: isMove)
     }
 }

@@ -36,6 +36,7 @@ class BaseViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("BaseViewController - init")
         
         view.addSubview(backgroundView)
         backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
@@ -50,5 +51,9 @@ class BaseViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 0.5).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    deinit {
+        print("BaseViewController - deinit")
     }
 }
