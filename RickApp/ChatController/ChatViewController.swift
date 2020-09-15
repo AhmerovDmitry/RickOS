@@ -1,7 +1,15 @@
 import UIKit
 
-class ChatViewController: UINavigationController {
+class ChatViewController: UIViewController {
     var messages: [String] = []
+    
+    let backgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
+        
+        return view
+    }()
     
     let tableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .plain)
@@ -26,7 +34,7 @@ class ChatViewController: UINavigationController {
         return textView
     }()
     
-    var doneButton: UIButton = {
+    let doneButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .clear
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -49,33 +57,50 @@ class ChatViewController: UINavigationController {
         view.endEditing(true)
     }
     
+    let topLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.textAlignment = .center
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        label.text = "Rick Sanchez"
+        
+        return label
+    }()
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ChatViewController init")
         registerForKeyboardNotification()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
-
-        self.navigationBar.barTintColor = .blue
-//        self.navigationItem.title = "Rick Sanchez"
-
-       [tableView, textView, doneButton].forEach( { view.addSubview($0) })
-        tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 0).isActive = true
-//        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50).isActive = true
+        
+        view.addSubview(backgroundView)
+        backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+       [tableView, textView, doneButton, topLabel].forEach( { backgroundView.addSubview($0) })
+        tableView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 44).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -50).isActive = true
         tableView.delegate = self
         tableView.dataSource = self
 
         textView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10).isActive = true
-        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
-        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        textView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        textView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 5).isActive = true
+        textView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -40).isActive = true
+        textView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10).isActive = true
 
         doneButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10).isActive = true
-        doneButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 379).isActive = true
-        doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
-        doneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        doneButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 379).isActive = true
+        doneButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -5).isActive = true
+        doneButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10).isActive = true
+        
+        topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        topLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 0).isActive = true
+        topLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: 0).isActive = true
+        topLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: 0).isActive = true
     }
 }

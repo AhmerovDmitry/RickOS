@@ -24,26 +24,26 @@ class BaseViewController: UIViewController {
 
         return cv
     }()
-    // MARK: - tableView
-    fileprivate let backgroundImage: UIImageView = {
-        var img = UIImageView()
-        img = UIImageView(image: UIImage(named: "backgroundMain"))
-        img.contentMode = .scaleAspectFill
-        img.translatesAutoresizingMaskIntoConstraints = false
+    // MARK: - backgroundView
+    let backgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleToFill
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundMain")!)
         
-        return img
+        return view
     }()
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        [backgroundImage, collectionView].forEach { view.addSubview($0) }
         
-        backgroundImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        view.addSubview(backgroundView)
+        backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         
+        backgroundView.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 170).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true

@@ -13,7 +13,6 @@
 		BCF045FA2503F64C003BBF99 /* BaseViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF045F92503F64C003BBF99 /* BaseViewCellModel.swift */; };
 		BCF38DA42503C4A900C949A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DA32503C4A900C949A0 /* AppDelegate.swift */; };
 		BCF38DA62503C4A900C949A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DA52503C4A900C949A0 /* SceneDelegate.swift */; };
-		BCF38DAB2503C4A900C949A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF38DA92503C4A900C949A0 /* Main.storyboard */; };
 		BCF38DAD2503C4AF00C949A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF38DAC2503C4AF00C949A0 /* Assets.xcassets */; };
 		BCF38DB02503C4AF00C949A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF38DAE2503C4AF00C949A0 /* LaunchScreen.storyboard */; };
 		BCF38DBB2503C63200C949A0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DBA2503C63200C949A0 /* BaseViewController.swift */; };
@@ -34,7 +33,6 @@
 		BCF38DA02503C4A900C949A0 /* RickApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF38DA32503C4A900C949A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF38DA52503C4A900C949A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCF38DAA2503C4A900C949A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCF38DAC2503C4AF00C949A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCF38DAF2503C4AF00C949A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCF38DB12503C4AF00C949A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportingFiles/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -110,7 +108,6 @@
 		BCF38DB72503C50500C949A0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				BCF38DA92503C4A900C949A0 /* Main.storyboard */,
 				BCF38DAC2503C4AF00C949A0 /* Assets.xcassets */,
 				BCF38DAE2503C4AF00C949A0 /* LaunchScreen.storyboard */,
 				BCF38DB12503C4AF00C949A0 /* Info.plist */,
@@ -216,7 +213,6 @@
 			files = (
 				BCF38DB02503C4AF00C949A0 /* LaunchScreen.storyboard in Resources */,
 				BCF38DAD2503C4AF00C949A0 /* Assets.xcassets in Resources */,
-				BCF38DAB2503C4A900C949A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,14 +243,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BCF38DA92503C4A900C949A0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCF38DAA2503C4A900C949A0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BCF38DAE2503C4AF00C949A0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
