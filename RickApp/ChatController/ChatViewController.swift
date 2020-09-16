@@ -2,6 +2,8 @@ import UIKit
 
 class ChatViewController: UIViewController {
     var messages: [String] = []
+    var rickMessages: [String] = []
+    let randomMessages = ["Hello Morty!", "Brrrr", "I'm drink, sorry...", "Who are you?", "This is don'n Rick!"]
     
     let backgroundView: UIView = {
         let view = UIView()
@@ -58,6 +60,17 @@ class ChatViewController: UIViewController {
         textView.text = ""
         view.endEditing(true)
         doneButton.isEnabled = false
+        
+        let meQueue = DispatchQueue(label: "test")
+        meQueue.async {
+            self.printMessage(with: 1, randomPhrase: self.randomMessages)
+        }
+    }
+    
+    func printMessage(with delay: UInt32, randomPhrase: [String]) {
+        sleep(delay)
+        messages.append(randomPhrase[Int.random(in: 0...randomPhrase.count - 1)])
+        print(messages)
     }
     
     let topLabel: UILabel = {

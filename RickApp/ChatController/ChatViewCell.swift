@@ -19,6 +19,14 @@ class ChatViewCell: UITableViewCell {
         return label
     }()
     
+    let cellRandomMessage: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.backgroundColor = .clear
+        
+        return label
+    }()
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
