@@ -12,11 +12,13 @@ class ChatViewController: UIViewController {
     }()
     
     let tableView: UITableView = {
-        let tv = UITableView(frame: .zero, style: .plain)
+        let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.separatorStyle = .none
-        tv.backgroundColor = .clear
+        tv.rowHeight = UITableView.automaticDimension
+        tv.estimatedRowHeight = 44.0
         tv.register(ChatViewCell.self, forCellReuseIdentifier: "cell")
+        tv.backgroundColor = .clear
         
         return tv
     }()
@@ -105,14 +107,10 @@ class ChatViewController: UIViewController {
         [tableView, textView, doneButton, topLabel].forEach( { backgroundView.addSubview($0) })
         topLabel.addSubview(backButton)
         
-        backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                            constant: 0).isActive = true
-        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                constant: 0).isActive = true
-        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                 constant: 0).isActive = true
-        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                               constant: 0).isActive = true
+        backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         tableView.topAnchor.constraint(equalTo: backgroundView.topAnchor,
                                        constant: 44).isActive = true
@@ -141,14 +139,10 @@ class ChatViewController: UIViewController {
         doneButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
                                            constant: -10).isActive = true
         
-        topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                      constant: 0).isActive = true
-        topLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                          constant: 0).isActive = true
-        topLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                           constant: 0).isActive = true
-        topLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor,
-                                         constant: 0).isActive = true
+        topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        topLabel.leftAnchor.constraint(equalTo: backgroundView.leftAnchor).isActive = true
+        topLabel.rightAnchor.constraint(equalTo: backgroundView.rightAnchor).isActive = true
+        topLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
         
         backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                         constant: 7).isActive = true
