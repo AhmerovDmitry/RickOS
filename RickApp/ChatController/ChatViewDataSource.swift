@@ -7,7 +7,6 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, UIText
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatViewCell
-        //cell.cellLabel.bounds.size = cell.cellText.bounds.size
         cell.bounds.size.height = 100
         cell.backgroundColor = .clear
         cell.messageText.layer.cornerRadius = 10

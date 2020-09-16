@@ -57,11 +57,12 @@ class ChatViewController: UIViewController {
     
     @objc func done() {
         messages.append(textView.text)
-        tableView.reloadData()
         textView.text = ""
         view.endEditing(true)
         doneButton.isEnabled = false
-        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         DispatchQueue.global().async {
             sleep(2)
             self.messages.append(self.randomMessages[Int.random(in: 0...self.randomMessages.count - 1)])
