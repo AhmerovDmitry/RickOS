@@ -1,57 +1,49 @@
 import UIKit
 
+// MARK: - ChatViewCell
 class ChatViewCell: UITableViewCell {
-    let cellLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.clipsToBounds = true
-        label.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        
-        return label
-    }()
-    
-    let cellText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.backgroundColor = .clear
-        
-        return label
-    }()
-    
-    let cellRandomMessage: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.backgroundColor = .clear
-        
-        return label
-    }()
+    let messageText = UILabel()
+    let messageLabel = UIView()
+    var isIncoming: Bool! {
+        didSet {
+            if isIncoming {
+                messageText.topAnchor.constraint(equalTo: topAnchor,
+                                               constant: 32).isActive = true
+                messageText.rightAnchor.constraint(equalTo: rightAnchor,
+                                                constant: -32).isActive = true
+                messageText.bottomAnchor.constraint(equalTo: bottomAnchor,
+                                                  constant: -32).isActive = true
+                messageText.widthAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
+            } else {
+                messageText.topAnchor.constraint(equalTo: topAnchor,
+                                               constant: 32).isActive = true
+                messageText.leftAnchor.constraint(equalTo: leftAnchor,
+                                                 constant: 32).isActive = true
+                messageText.bottomAnchor.constraint(equalTo: bottomAnchor,
+                                                    constant: -32).isActive = true
+                messageText.widthAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
+            }
+        }
+    }
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.addSubview(cellLabel)
-        cellLabel.topAnchor.constraint(equalTo: contentView.topAnchor,
-                                       constant: 8).isActive = true
-        cellLabel.leftAnchor.constraint(greaterThanOrEqualTo: contentView.leftAnchor,
-                                        constant:UIScreen.main.bounds.width / 4).isActive = true
-        cellLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor,
-                                         constant: -8).isActive = true
-        cellLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                          constant: -8).isActive = true
-        cellLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        [messageLabel, messageText].forEach({ addSubview($0) })
         
-        cellLabel.addSubview(cellText)
-        cellText.topAnchor.constraint(equalTo: cellLabel.topAnchor, constant: 0).isActive = true
-        cellText.leftAnchor.constraint(equalTo: cellLabel.leftAnchor, constant: 10).isActive = true
-        cellText.rightAnchor.constraint(equalTo: cellLabel.rightAnchor, constant: -10).isActive = true
-        cellText.bottomAnchor.constraint(equalTo: cellLabel.bottomAnchor, constant: 0).isActive = true
+        messageText.translatesAutoresizingMaskIntoConstraints = false
+        messageText.numberOfLines = 0
         
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.backgroundColor = .darkGray
+        messageLabel.layer.cornerRadius = 16
+        
+        messageLabel.topAnchor.constraint(equalTo: messageText.topAnchor, constant: -16).isActive = true
+        messageLabel.leftAnchor.constraint(equalTo: messageText.leftAnchor, constant: -16).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: messageText.rightAnchor, constant: 16).isActive = true
+        messageLabel.bottomAnchor.constraint(equalTo: messageText.bottomAnchor, constant: 16).isActive = true
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

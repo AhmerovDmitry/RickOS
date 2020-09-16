@@ -21,6 +21,7 @@ class ChatViewController: UIViewController {
         tv.estimatedRowHeight = 44.0
         tv.register(ChatViewCell.self, forCellReuseIdentifier: "cell")
         tv.backgroundColor = .clear
+        tv.showsVerticalScrollIndicator = false
         
         return tv
     }()
@@ -61,16 +62,13 @@ class ChatViewController: UIViewController {
         view.endEditing(true)
         doneButton.isEnabled = false
         
-        let meQueue = DispatchQueue(label: "test")
-        meQueue.async {
-            self.printMessage(with: 1, randomPhrase: self.randomMessages)
+        DispatchQueue.global().async {
+            sleep(2)
+            self.messages.append(self.randomMessages[Int.random(in: 0...self.randomMessages.count - 1)])
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-    }
-    
-    func printMessage(with delay: UInt32, randomPhrase: [String]) {
-        sleep(delay)
-        messages.append(randomPhrase[Int.random(in: 0...randomPhrase.count - 1)])
-        print(messages)
     }
     
     let topLabel: UILabel = {

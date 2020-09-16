@@ -7,11 +7,13 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, UIText
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatViewCell
-        cell.cellLabel.bounds.size = cell.cellText.bounds.size
+        //cell.cellLabel.bounds.size = cell.cellText.bounds.size
         cell.bounds.size.height = 100
-        cell.cellText.text = messages[indexPath.row]
         cell.backgroundColor = .clear
-        cell.cellLabel.layer.cornerRadius = 10
+        cell.messageText.layer.cornerRadius = 10
+        cell.messageText.text = messages[indexPath.row]
+        
+        cell.isIncoming = indexPath.row % 2 == 0
         
         return cell
     }
@@ -28,9 +30,9 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, UIText
     }
     
     @objc func scrollToBot(notification: Notification) {
-//        if messages.count >= 1 {
-//            self.tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
-//        }
+        if messages.count >= 1 {
+            self.tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+        }
     }
     
     @objc func keyboardWillShow(notification: Notification) {
