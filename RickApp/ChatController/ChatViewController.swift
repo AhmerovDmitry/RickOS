@@ -39,12 +39,21 @@ class ChatViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isScrollEnabled = false
         textView.backgroundColor = .clear
-        textView.layer.borderWidth = 1
-        textView.layer.borderColor = UIColor.white.cgColor
-        textView.layer.cornerRadius = 15
+        textView.font = .systemFont(ofSize: 17)
         textView.textColor = .white
 
         return textView
+    }()
+    
+    let textViewLabel: UILabel = {
+        let textViewLabel = UILabel()
+        textViewLabel.translatesAutoresizingMaskIntoConstraints = false
+        textViewLabel.backgroundColor = .clear
+        textViewLabel.layer.borderWidth = 1
+        textViewLabel.layer.borderColor = UIColor.white.cgColor
+        textViewLabel.layer.cornerRadius = 18
+        
+        return textViewLabel
     }()
     
     let doneButton: UIButton = {
@@ -52,7 +61,6 @@ class ChatViewController: UIViewController {
         btn.backgroundColor = .clear
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(done), for: .touchUpInside)
-        btn.layer.cornerRadius = 15
         btn.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         btn.tintColor = .white
         btn.contentEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
@@ -82,6 +90,15 @@ class ChatViewController: UIViewController {
         }
     }
     
+    let bottomLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = true
+        label.backgroundColor = .clear
+        
+        return label
+    }()
+    
     let topLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +116,6 @@ class ChatViewController: UIViewController {
         btn.backgroundColor = .clear
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(back), for: .touchUpInside)
-        btn.layer.cornerRadius = 15
         btn.setImage(UIImage(systemName: "multiply.circle"), for: .normal)
         btn.tintColor = .white
         btn.contentEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
@@ -127,56 +143,62 @@ class ChatViewController: UIViewController {
         
         view.addSubview(backgroundView)
         [tableView,
-         textView,
-         doneButton,
-         topLabel].forEach({ backgroundView.addSubview($0) })
+         topLabel,
+         bottomLabel].forEach({ backgroundView.addSubview($0) })
         topLabel.addSubview(backButton)
+        [textViewLabel, textView, doneButton].forEach({ bottomLabel.addSubview($0) })
 
         backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        tableView.topAnchor.constraint(equalTo: backgroundView.topAnchor,
-                                       constant: 44).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                           constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                            constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
-                                          constant: -50).isActive = true
-
-        textView.topAnchor.constraint(equalTo: tableView.bottomAnchor,
-                                      constant: 10).isActive = true
-        textView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                          constant: 5).isActive = true
-        textView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                           constant: -40).isActive = true
-        textView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
-                                         constant: -10).isActive = true
-
-        doneButton.topAnchor.constraint(equalTo: tableView.bottomAnchor,
-                                        constant: 10).isActive = true
-        doneButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                            constant: 379).isActive = true
-        doneButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                             constant: -5).isActive = true
-        doneButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
-                                           constant: -10).isActive = true
-        
-        topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        topLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor).isActive = true
         topLabel.leftAnchor.constraint(equalTo: backgroundView.leftAnchor).isActive = true
         topLabel.rightAnchor.constraint(equalTo: backgroundView.rightAnchor).isActive = true
-        topLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
+        topLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
-        backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                        constant: 7).isActive = true
-        backButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                            constant: 379).isActive = true
-        backButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor,
-                                             constant: -5).isActive = true
-        backButton.bottomAnchor.constraint(equalTo: tableView.topAnchor,
-                                           constant: -7).isActive = true
+        backButton.rightAnchor.constraint(equalTo: backgroundView.rightAnchor,
+                                             constant: -10).isActive = true
+        backButton.centerYAnchor.constraint(equalTo: topLabel.centerYAnchor).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        tableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor,
+                                        constant: 0).isActive = true
+        tableView.rightAnchor.constraint(equalTo: backgroundView.rightAnchor,
+                                         constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: bottomLabel.topAnchor).isActive = true
+        
+        bottomLabel.topAnchor.constraint(equalTo: textView.topAnchor,
+                                         constant: -10).isActive = true
+        bottomLabel.leftAnchor.constraint(equalTo: backgroundView.leftAnchor).isActive = true
+        bottomLabel.rightAnchor.constraint(equalTo: backgroundView.rightAnchor).isActive = true
+        bottomLabel.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor).isActive = true
+        
+        textView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor,
+                                          constant: 16).isActive = true
+        textView.rightAnchor.constraint(equalTo: doneButton.leftAnchor,
+                                           constant: -16).isActive = true
+        textView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
+                                         constant: -10).isActive = true
+        textView.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+        
+        textViewLabel.topAnchor.constraint(equalTo: textView.topAnchor,
+                                           constant: 0).isActive = true
+        textViewLabel.leadingAnchor.constraint(equalTo: textView.leadingAnchor,
+                                          constant: -6).isActive = true
+        textViewLabel.trailingAnchor.constraint(equalTo: textView.trailingAnchor,
+                                           constant: 6).isActive = true
+        textViewLabel.bottomAnchor.constraint(equalTo: textView.bottomAnchor,
+                                         constant: 0).isActive = true
+
+        doneButton.rightAnchor.constraint(equalTo: bottomLabel.rightAnchor,
+                                            constant: -10).isActive = true
+        doneButton.bottomAnchor.constraint(equalTo: bottomLabel.bottomAnchor, constant: -10).isActive = true
+        doneButton.widthAnchor.constraint(equalToConstant: 36).isActive = true
+        doneButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
     }
     
     deinit {
