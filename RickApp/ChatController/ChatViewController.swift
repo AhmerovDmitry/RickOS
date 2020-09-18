@@ -2,8 +2,16 @@ import UIKit
 
 class ChatViewController: UIViewController {
     var messages: [String] = []
-    var rickMessages: [String] = []
-    let randomMessages = ["Hello Morty!", "Brrrr", "I'm drink, sorry...", "Who are you?", "This is don'n Rick!"]
+    let randomMessages = [
+        "Sorry, I can’t chat right now.",
+        "I’m on my way.",
+        "I’ll text you right back",
+        "Can I text you later?",
+        "I’ll text when I get home.",
+        "I’m busy.",
+        "Hey, love u2... but later! ;)",
+        "I've been through the desert on a horse with no name… & I can't remember your name! So… text me maybe!?"
+    ]
     
     let backgroundView: UIView = {
         let view = UIView()
@@ -60,6 +68,7 @@ class ChatViewController: UIViewController {
         textView.text = ""
         view.endEditing(true)
         doneButton.isEnabled = false
+        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -68,6 +77,7 @@ class ChatViewController: UIViewController {
             self.messages.append(self.randomMessages[Int.random(in: 0...self.randomMessages.count - 1)])
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section: 0), at: .bottom, animated: true)
             }
         }
     }
@@ -116,9 +126,12 @@ class ChatViewController: UIViewController {
         textView.delegate = self
         
         view.addSubview(backgroundView)
-        [tableView, textView, doneButton, topLabel].forEach( { backgroundView.addSubview($0) })
+        [tableView,
+         textView,
+         doneButton,
+         topLabel].forEach({ backgroundView.addSubview($0) })
         topLabel.addSubview(backButton)
-        
+
         backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
