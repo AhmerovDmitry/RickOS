@@ -38,22 +38,23 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
 // MARK: - @objc extension for button
 @objc extension DetailPopController {
     func memoryButton() {
-        print("memoryButton")
     }
     func cloningButton() {
-        print("cloningButton")
     }
     func callJessicaButton() {
-        print("callJessicaButton")
         guard let url = URL(string: "tel://+79834102463") else { return }
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
     }
     func unknownButton() {
-        print("unknownButton")
+        print("View bounds - \(view.bounds)")
+        print("View frame - \(view.frame)")
+        print(collectionView.bounds)
     }
     func chatRickButton() {
-        print("chatRickButton")
+        let chatView = ChatViewController()
+        chatView.modalPresentationStyle = .overFullScreen
+        present(chatView, animated: true)
     }
 }

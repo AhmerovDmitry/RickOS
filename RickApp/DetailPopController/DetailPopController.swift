@@ -9,7 +9,7 @@ class DetailPopController: UIViewController {
         DetailPopData(text: "Chat Rick")
     ]
     // MARK: - collectionView
-    fileprivate let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
         layout.minimumInteritemSpacing = 20
@@ -24,8 +24,15 @@ class DetailPopController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("DetailPopController - init")
         
-        self.view.frame = CGRect(x: 7.0, y: 368.0 * 2, width: 400.0, height: 400.0)
+        self.view.frame = CGRect(
+            x: 7,
+            y: 368 * 2,
+            width: 400,
+            height: 370
+        )
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.cornerRadius = 40
@@ -37,5 +44,9 @@ class DetailPopController: UIViewController {
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    deinit {
+        print("DetailPopController - deinit")
     }
 }

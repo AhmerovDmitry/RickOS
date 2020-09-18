@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0FAC50250561D100DB1A11 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */; };
+		BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB2250A1967005171CC /* ChatViewCell.swift */; };
+		BCC18BB5250A1DFD005171CC /* ChatViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */; };
 		BCF045FA2503F64C003BBF99 /* BaseViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF045F92503F64C003BBF99 /* BaseViewCellModel.swift */; };
 		BCF38DA42503C4A900C949A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DA32503C4A900C949A0 /* AppDelegate.swift */; };
 		BCF38DA62503C4A900C949A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DA52503C4A900C949A0 /* SceneDelegate.swift */; };
-		BCF38DAB2503C4A900C949A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF38DA92503C4A900C949A0 /* Main.storyboard */; };
 		BCF38DAD2503C4AF00C949A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF38DAC2503C4AF00C949A0 /* Assets.xcassets */; };
 		BCF38DB02503C4AF00C949A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF38DAE2503C4AF00C949A0 /* LaunchScreen.storyboard */; };
 		BCF38DBB2503C63200C949A0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF38DBA2503C63200C949A0 /* BaseViewController.swift */; };
@@ -24,11 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		BCC18BB2250A1967005171CC /* ChatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
+		BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewDataSource.swift; sourceTree = "<group>"; };
 		BCF045F92503F64C003BBF99 /* BaseViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewCellModel.swift; sourceTree = "<group>"; };
 		BCF38DA02503C4A900C949A0 /* RickApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF38DA32503C4A900C949A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF38DA52503C4A900C949A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCF38DAA2503C4A900C949A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCF38DAC2503C4AF00C949A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCF38DAF2503C4AF00C949A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCF38DB12503C4AF00C949A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportingFiles/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -53,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC0FAC4E2505618F00DB1A11 /* ChatController */ = {
+			isa = PBXGroup;
+			children = (
+				BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */,
+				BCC18BB2250A1967005171CC /* ChatViewCell.swift */,
+				BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */,
+			);
+			path = ChatController;
+			sourceTree = "<group>";
+		};
 		BCF045FB2503F693003BBF99 /* BaseViewModel + DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +100,7 @@
 				BCF38DC02503C6E000C949A0 /* Extension */,
 				BCF38DB92503C61900C949A0 /* BaseView */,
 				BCF38DC62503C8B400C949A0 /* DetailPopController */,
+				BC0FAC4E2505618F00DB1A11 /* ChatController */,
 			);
 			path = RickApp;
 			sourceTree = "<group>";
@@ -93,7 +108,6 @@
 		BCF38DB72503C50500C949A0 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				BCF38DA92503C4A900C949A0 /* Main.storyboard */,
 				BCF38DAC2503C4AF00C949A0 /* Assets.xcassets */,
 				BCF38DAE2503C4AF00C949A0 /* LaunchScreen.storyboard */,
 				BCF38DB12503C4AF00C949A0 /* Info.plist */,
@@ -166,7 +180,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Дмитрий Ахмеров";
 				TargetAttributes = {
 					BCF38D9F2503C4A900C949A0 = {
@@ -199,7 +213,6 @@
 			files = (
 				BCF38DB02503C4AF00C949A0 /* LaunchScreen.storyboard in Resources */,
 				BCF38DAD2503C4AF00C949A0 /* Assets.xcassets in Resources */,
-				BCF38DAB2503C4A900C949A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */,
 				BCF38DA42503C4A900C949A0 /* AppDelegate.swift in Sources */,
 				BCF38DCA2503C8F700C949A0 /* DetailPopCell.swift in Sources */,
+				BCC18BB5250A1DFD005171CC /* ChatViewDataSource.swift in Sources */,
 				BCF38DA62503C4A900C949A0 /* SceneDelegate.swift in Sources */,
 				BCF38DCC2503C90500C949A0 /* DetailPopDataSource.swift in Sources */,
 				BCF38DC82503C8D000C949A0 /* DetailPopController.swift in Sources */,
@@ -220,6 +235,7 @@
 				BCF045FA2503F64C003BBF99 /* BaseViewCellModel.swift in Sources */,
 				BCF38DBF2503C69800C949A0 /* BaseViewDataSource.swift in Sources */,
 				BCF38DC52503C77400C949A0 /* AnimationChildView.swift in Sources */,
+				BC0FAC50250561D100DB1A11 /* ChatViewController.swift in Sources */,
 				BCF38DBD2503C66900C949A0 /* BaseViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,14 +243,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BCF38DA92503C4A900C949A0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCF38DAA2503C4A900C949A0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BCF38DAE2503C4AF00C949A0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,6 +280,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -332,6 +341,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -367,7 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7JDNVBEZLP;
 				INFOPLIST_FILE = SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,7 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7JDNVBEZLP;
 				INFOPLIST_FILE = SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
