@@ -133,7 +133,7 @@ class ChatViewController: UIViewController {
         btn.backgroundColor = .clear
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(removeData), for: .touchUpInside)
-        btn.setImage(UIImage(systemName: "multiply.circle"), for: .normal)
+        btn.setImage(UIImage(systemName: "trash"), for: .normal)
         btn.tintColor = .white
         btn.contentEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
         btn.contentHorizontalAlignment = .fill
@@ -144,9 +144,18 @@ class ChatViewController: UIViewController {
     }()
     
     @objc func removeData() {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Messages")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
         messages.removeAll()
         tableView.reloadData()
     }
+
     
     @objc func back() {
         dismiss(animated: true)
