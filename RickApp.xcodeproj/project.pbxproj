@@ -11,6 +11,7 @@
 		BC209D662518BE4300AA09D5 /* SpaceshipBuilderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC209D652518BE4300AA09D5 /* SpaceshipBuilderModel.swift */; };
 		BC3D1E41251885C4000EABD3 /* SpaceshipBuilderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */; };
 		BC9B332925188D4F0047014D /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC9B332725188D4F0047014D /* CoreDataModel.xcdatamodeld */; };
+		BC9B332C251890870047014D /* ChatViewCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9B332B251890870047014D /* ChatViewCoreData.swift */; };
 		BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB2250A1967005171CC /* ChatViewCell.swift */; };
 		BCC18BB5250A1DFD005171CC /* ChatViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */; };
 		BCF045FA2503F64C003BBF99 /* BaseViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF045F92503F64C003BBF99 /* BaseViewCellModel.swift */; };
@@ -33,6 +34,7 @@
 		BC209D652518BE4300AA09D5 /* SpaceshipBuilderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderModel.swift; sourceTree = "<group>"; };
 		BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderController.swift; sourceTree = "<group>"; };
 		BC9B332825188D4F0047014D /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		BC9B332B251890870047014D /* ChatViewCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCoreData.swift; sourceTree = "<group>"; };
 		BCC18BB2250A1967005171CC /* ChatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
 		BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewDataSource.swift; sourceTree = "<group>"; };
 		BCF045F92503F64C003BBF99 /* BaseViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewCellModel.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */,
 				BCC18BB2250A1967005171CC /* ChatViewCell.swift */,
 				BCC18BB4250A1DFD005171CC /* ChatViewDataSource.swift */,
+				BC9B332B251890870047014D /* ChatViewCoreData.swift */,
 			);
 			path = ChatController;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				BCF38DCA2503C8F700C949A0 /* DetailPopCell.swift in Sources */,
 				BCC18BB5250A1DFD005171CC /* ChatViewDataSource.swift in Sources */,
 				BCF38DA62503C4A900C949A0 /* SceneDelegate.swift in Sources */,
+				BC9B332C251890870047014D /* ChatViewCoreData.swift in Sources */,
 				BCF38DCC2503C90500C949A0 /* DetailPopDataSource.swift in Sources */,
 				BC9B332925188D4F0047014D /* CoreDataModel.xcdatamodeld in Sources */,
 				BCF38DC82503C8D000C949A0 /* DetailPopController.swift in Sources */,
