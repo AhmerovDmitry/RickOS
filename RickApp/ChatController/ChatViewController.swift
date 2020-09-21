@@ -1,7 +1,9 @@
 import UIKit
+import CoreData
 
 class ChatViewController: UIViewController {
-    var messages: [String] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var messages = [Messages]()
     let randomMessages = [
         "Sorry, I can’t chat right now.",
         "I’m on my way.",
@@ -72,7 +74,7 @@ class ChatViewController: UIViewController {
     }()
     
     @objc func done() {
-        messages.append(textView.text)
+        saveMessage(textView.text, context: context)
         textView.text = ""
         view.endEditing(true)
         doneButton.isEnabled = false
@@ -82,7 +84,7 @@ class ChatViewController: UIViewController {
         }
         DispatchQueue.global().async {
             sleep(2)
-            self.messages.append(self.randomMessages[Int.random(in: 0...self.randomMessages.count - 1)])
+            self.saveMessage(self.randomMessages[Int.random(in: 0...self.randomMessages.count - 1)], context: self.context)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section: 0), at: .bottom, animated: true)
@@ -126,6 +128,26 @@ class ChatViewController: UIViewController {
         return btn
     }()
     
+    let removeButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.backgroundColor = .clear
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(removeData), for: .touchUpInside)
+        btn.setImage(UIImage(systemName: "multiply.circle"), for: .normal)
+        btn.tintColor = .white
+        btn.contentEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
+        btn.contentHorizontalAlignment = .fill
+        btn.contentVerticalAlignment = .fill
+        btn.imageView?.contentMode = .scaleAspectFill
+        
+        return btn
+    }()
+    
+    @objc func removeData() {
+        messages.removeAll()
+        tableView.reloadData()
+    }
+    
     @objc func back() {
         dismiss(animated: true)
     }
@@ -142,10 +164,8 @@ class ChatViewController: UIViewController {
         textView.delegate = self
         
         view.addSubview(backgroundView)
-        [tableView,
-         topLabel,
-         bottomLabel].forEach({ backgroundView.addSubview($0) })
-        topLabel.addSubview(backButton)
+        [tableView, topLabel, bottomLabel].forEach({ backgroundView.addSubview($0) })
+        [backButton, removeButton].forEach({ topLabel.addSubview($0) })
         [textViewLabel, textView, doneButton].forEach({ bottomLabel.addSubview($0) })
 
         backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -163,6 +183,12 @@ class ChatViewController: UIViewController {
         backButton.centerYAnchor.constraint(equalTo: topLabel.centerYAnchor).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 18).isActive = true
         backButton.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        removeButton.leftAnchor.constraint(equalTo: backgroundView.leftAnchor,
+                                             constant: 10).isActive = true
+        removeButton.centerYAnchor.constraint(equalTo: topLabel.centerYAnchor).isActive = true
+        removeButton.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        removeButton.heightAnchor.constraint(equalToConstant: 18).isActive = true
         
         tableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor,
