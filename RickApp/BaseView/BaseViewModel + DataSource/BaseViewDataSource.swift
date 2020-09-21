@@ -19,7 +19,6 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BaseViewCell
-        cell.cellButton.addTarget(self, action: #selector(showController), for: .touchUpInside)
         cell.data = self.data[indexPath.row]
         cell.layer.cornerRadius = BaseViewController.cellCornerRadius
         cell.layer.borderColor = UIColor.black.cgColor
@@ -29,6 +28,14 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         case 0:
             cell.cellButton.removeFromSuperview()
             cell.backgroundColor = UIColor(red: 77/255, green: 177/255, blue: 177/255, alpha: 1)
+        case 1:
+            cell.addButton.removeFromSuperview()
+            cell.backgroundColor = UIColor.white
+            cell.cellButton.addTarget(self, action: #selector(showDetailController), for: .touchUpInside)
+        case 2:
+            cell.addButton.removeFromSuperview()
+            cell.backgroundColor = UIColor.white
+            cell.cellButton.addTarget(self, action: #selector(showSpaceshipBuilderController), for: .touchUpInside)
         case 4:
             cell.cellButton.removeFromSuperview()
             cell.backgroundColor = UIColor(red: 77/255, green: 177/255, blue: 177/255, alpha: 1)
@@ -45,9 +52,14 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 }
 
 // MARK: - @objc methods
-extension BaseViewController {
-    @objc func showController() {
+@objc extension BaseViewController {
+    func showDetailController() {
         isMove = !isMove
         showChildController(shouldMove: isMove)
+    }
+    
+    func showSpaceshipBuilderController() {
+        let spaceshipBuilder = SpaceshipBuilderController()
+        present(spaceshipBuilder, animated: true)
     }
 }
