@@ -31,29 +31,21 @@ class ChatViewCell: UITableViewCell {
         messageText.translatesAutoresizingMaskIntoConstraints = false
         messageText.numberOfLines = 0
         messageText.textColor = .white
-        messageText.topAnchor.constraint(equalTo: topAnchor,
-                                       constant: 32).isActive = true
-        messageText.bottomAnchor.constraint(equalTo: bottomAnchor,
-                                          constant: -32).isActive = true
+        messageText.topAnchor.constraint(equalTo: topAnchor, constant: 32).isActive = true
+        messageText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32).isActive = true
         messageText.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
         
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
         messageLabel.layer.cornerRadius = 16
-        messageLabel.topAnchor.constraint(equalTo: messageText.topAnchor,
-                                          constant: -16).isActive = true
-        messageLabel.leftAnchor.constraint(equalTo: messageText.leftAnchor,
-                                           constant: -16).isActive = true
-        messageLabel.rightAnchor.constraint(equalTo: messageText.rightAnchor,
-                                            constant: 16).isActive = true
-        messageLabel.bottomAnchor.constraint(equalTo: messageText.bottomAnchor,
-                                             constant: 16).isActive = true
+        messageLabel.topAnchor.constraint(equalTo: messageText.topAnchor, constant: -16).isActive = true
+        messageLabel.leftAnchor.constraint(equalTo: messageText.leftAnchor, constant: -16).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: messageText.rightAnchor, constant: 16).isActive = true
+        messageLabel.bottomAnchor.constraint(equalTo: messageText.bottomAnchor, constant: 16).isActive = true
         
-        leadingConstraint = messageText.leftAnchor.constraint(equalTo: leftAnchor,
-                                        constant: 32)
+        leadingConstraint = messageText.leftAnchor.constraint(equalTo: leftAnchor, constant: 32)
         leadingConstraint.isActive = false
-        trailingConstraint = messageText.rightAnchor.constraint(equalTo: rightAnchor,
-                                        constant: -32)
+        trailingConstraint = messageText.rightAnchor.constraint(equalTo: rightAnchor, constant: -32)
         trailingConstraint.isActive = true
         
     }
