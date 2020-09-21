@@ -27,7 +27,9 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, UIText
     
     @objc func scrollToBot(notification: Notification) {
         if messages.count >= 1 {
-            self.tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+            self.tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0),
+                                       at: .bottom,
+                                       animated: true)
         }
     }
     
