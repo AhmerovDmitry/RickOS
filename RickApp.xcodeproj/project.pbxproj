@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC0FAC50250561D100DB1A11 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */; };
+		BC209D662518BE4300AA09D5 /* SpaceshipBuilderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC209D652518BE4300AA09D5 /* SpaceshipBuilderModel.swift */; };
 		BC3D1E41251885C4000EABD3 /* SpaceshipBuilderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */; };
 		BC9B332925188D4F0047014D /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC9B332725188D4F0047014D /* CoreDataModel.xcdatamodeld */; };
 		BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB2250A1967005171CC /* ChatViewCell.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		BC209D652518BE4300AA09D5 /* SpaceshipBuilderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderModel.swift; sourceTree = "<group>"; };
 		BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderController.swift; sourceTree = "<group>"; };
 		BC9B332825188D4F0047014D /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BCC18BB2250A1967005171CC /* ChatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */,
+				BC209D652518BE4300AA09D5 /* SpaceshipBuilderModel.swift */,
 			);
 			path = SpaceshipBuilderController;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				BCF38DC82503C8D000C949A0 /* DetailPopController.swift in Sources */,
 				BC3D1E41251885C4000EABD3 /* SpaceshipBuilderController.swift in Sources */,
 				BCF38DC22503C6FC00C949A0 /* UIViewController.swift in Sources */,
+				BC209D662518BE4300AA09D5 /* SpaceshipBuilderModel.swift in Sources */,
 				BCF38DBB2503C63200C949A0 /* BaseViewController.swift in Sources */,
 				BCF045FA2503F64C003BBF99 /* BaseViewCellModel.swift in Sources */,
 				BCF38DBF2503C69800C949A0 /* BaseViewDataSource.swift in Sources */,
