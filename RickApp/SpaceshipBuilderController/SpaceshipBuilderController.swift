@@ -6,50 +6,76 @@ class SpaceshipBuilderController: UIViewController {
     let wing = UISegmentedControl(items: ["-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
     let cockpit = UISegmentedControl(items: ["-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
     let gun = UISegmentedControl(items: ["-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
-    
     let wingsLabel = UILabel()
     let cockpitsLabel = UILabel()
     let gunsLabel = UILabel()
     
+    let imageStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.alignment = .center
+        sv.axis = .vertical
+        sv.spacing = 25
+
+        return sv
+    }()
+    
+    let builderStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.axis = .vertical
+        sv.spacing = 5
+
+        return sv
+    }()
+    
+    let saveButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Save Spaceship", for: .normal)
+        btn.backgroundColor = .darkGray
+        btn.layer.cornerRadius = 25
+        
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
-    
-        [spaceship.wing, spaceship.cockpit, spaceship.gun].forEach({ obj in
-            view.addSubview(obj)
-            
-            obj.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            obj.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            obj.widthAnchor.constraint(equalToConstant: 300).isActive = true
-            obj.heightAnchor.constraint(equalToConstant: 300).isActive = true
-            
+        wing.selectedSegmentIndex = 0
+        cockpit.selectedSegmentIndex = 0
+        gun.selectedSegmentIndex = 0
+        
+        view.addSubview(imageStackView)
+        
+        //MARK: - Top Stack View
+        [wingsLabel, wing, cockpitsLabel, cockpit, gunsLabel, gun].forEach({ obj in
+            builderStackView.addArrangedSubview(obj)
+        })
+        
+        //MARK: - Mid Stack View
+        [spaceship.cockpit, spaceship.gun].forEach({ obj in
+            spaceship.wing.addSubview(obj)
             obj.translatesAutoresizingMaskIntoConstraints = false
         })
         
-        
-        view.addSubview(wing)
-        
-        [wing, cockpit, gun, wingsLabel, cockpitsLabel, gunsLabel].forEach({ obj in
-            view.addSubview(obj)
+        [builderStackView, spaceship.wing, saveButton].forEach({ obj in
+            imageStackView.addArrangedSubview(obj)
             obj.translatesAutoresizingMaskIntoConstraints = false
+            imageStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            imageStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+            imageStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+
+            spaceship.wing.widthAnchor.constraint(equalToConstant: 300).isActive = true
+            spaceship.wing.heightAnchor.constraint(equalToConstant: 300).isActive = true
             
-            obj.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            obj.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-            obj.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+            saveButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            saveButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         })
-        
-        wingsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
-        wing.topAnchor.constraint(equalTo: wingsLabel.bottomAnchor, constant: 5).isActive = true
-        
-        cockpitsLabel.topAnchor.constraint(equalTo: wing.bottomAnchor, constant: 15).isActive = true
-        cockpit.topAnchor.constraint(equalTo: cockpitsLabel.bottomAnchor, constant: 5).isActive = true
-        
-        gunsLabel.topAnchor.constraint(equalTo: cockpit.bottomAnchor, constant: 15).isActive = true
-        gun.topAnchor.constraint(equalTo: gunsLabel.bottomAnchor, constant: 5).isActive = true
         
         wingsLabel.text = "Wings"
-        cockpitsLabel.text = "Cockpits"
-        gunsLabel.text = "Guns"
+        cockpitsLabel.text = "Cockpit"
+        gunsLabel.text = "Gun"
         wingsLabel.textAlignment = .center
         cockpitsLabel.textAlignment = .center
         gunsLabel.textAlignment = .center
