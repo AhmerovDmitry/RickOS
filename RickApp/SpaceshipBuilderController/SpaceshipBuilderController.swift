@@ -30,14 +30,25 @@ class SpaceshipBuilderController: UIViewController {
     }()
     
     let saveButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Save Spaceship", for: .normal)
+        btn.setTitle("Random Spaceship", for: .normal)
         btn.backgroundColor = .darkGray
         btn.layer.cornerRadius = 25
+        btn.addTarget(self, action: #selector(randomSpaceship), for: .touchUpInside)
         
         return btn
     }()
+    
+    @objc func randomSpaceship() {
+        wing.selectedSegmentIndex = Int.random(in: 1...10)
+        cockpit.selectedSegmentIndex = Int.random(in: 1...10)
+        gun.selectedSegmentIndex = Int.random(in: 1...10)
+        
+        changeWing()
+        changeCockpit()
+        changeGun()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,18 +58,16 @@ class SpaceshipBuilderController: UIViewController {
         gun.selectedSegmentIndex = 0
         
         view.addSubview(imageStackView)
-        
         //MARK: - Top Stack View
         [wingsLabel, wing, cockpitsLabel, cockpit, gunsLabel, gun].forEach({ obj in
             builderStackView.addArrangedSubview(obj)
         })
-        
         //MARK: - Mid Stack View
         [spaceship.cockpit, spaceship.gun].forEach({ obj in
             spaceship.wing.addSubview(obj)
             obj.translatesAutoresizingMaskIntoConstraints = false
         })
-        
+        //MARK: - All Stack View
         [builderStackView, spaceship.wing, saveButton].forEach({ obj in
             imageStackView.addArrangedSubview(obj)
             obj.translatesAutoresizingMaskIntoConstraints = false
@@ -72,14 +81,14 @@ class SpaceshipBuilderController: UIViewController {
             saveButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
             saveButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         })
-        
+        //MARK: - Label for UISegmentedControl
         wingsLabel.text = "Wings"
         cockpitsLabel.text = "Cockpit"
         gunsLabel.text = "Gun"
         wingsLabel.textAlignment = .center
         cockpitsLabel.textAlignment = .center
         gunsLabel.textAlignment = .center
-                
+        //MARK: - Target for UISegmentedControl
         wing.addTarget(self, action: #selector(changeWing), for: .valueChanged)
         cockpit.addTarget(self, action: #selector(changeCockpit), for: .valueChanged)
         gun.addTarget(self, action: #selector(changeGun), for: .valueChanged)
