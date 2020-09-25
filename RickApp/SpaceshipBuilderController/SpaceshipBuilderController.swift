@@ -53,6 +53,7 @@ class SpaceshipBuilderController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("SpaceshipBuilderController - init")
         view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundChat")!)
         wing.selectedSegmentIndex = 0
         cockpit.selectedSegmentIndex = 0
@@ -93,6 +94,10 @@ class SpaceshipBuilderController: UIViewController {
         wing.addTarget(self, action: #selector(changeWing), for: .valueChanged)
         cockpit.addTarget(self, action: #selector(changeCockpit), for: .valueChanged)
         gun.addTarget(self, action: #selector(changeGun), for: .valueChanged)
+    }
+    
+    deinit {
+        print("SpaceshipBuilderController - deinit")
     }
 }
 

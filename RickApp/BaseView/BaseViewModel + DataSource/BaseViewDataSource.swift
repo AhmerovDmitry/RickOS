@@ -62,6 +62,7 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func showSpaceshipBuilderController() {
         let spaceshipBuilder = SpaceshipBuilderController()
+        spaceshipBuilder.modalPresentationStyle = .overFullScreen
         spaceshipBuilder.delegate = self
         present(spaceshipBuilder, animated: true)
     }
