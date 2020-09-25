@@ -1,6 +1,7 @@
 import UIKit
 
 class SpaceshipBuilderController: UIViewController {
+    weak var delegate: BaseViewControllerDelegate?
     var spaceship = SpaceshipBuilderModel()
     
     let wing = UISegmentedControl(items: ["-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
@@ -32,22 +33,22 @@ class SpaceshipBuilderController: UIViewController {
     let saveButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Random Spaceship", for: .normal)
+        btn.setTitle("Save", for: .normal)
         btn.backgroundColor = .darkGray
         btn.layer.cornerRadius = 25
-        btn.addTarget(self, action: #selector(randomSpaceship), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(saveSpaceship), for: .touchUpInside)
         
         return btn
     }()
     
-    @objc func randomSpaceship() {
-        wing.selectedSegmentIndex = Int.random(in: 1...10)
-        cockpit.selectedSegmentIndex = Int.random(in: 1...10)
-        gun.selectedSegmentIndex = Int.random(in: 1...10)
-        
-        changeWing()
-        changeCockpit()
-        changeGun()
+    @objc func saveSpaceship() {
+        if spaceship.wing.image == nil || spaceship.cockpit.image == nil || spaceship.gun.image == nil {
+            alert()
+        } else {
+            let spaceshipImage = compositeImages(images: [spaceship.wing.image!, spaceship.cockpit.image!, spaceship.gun.image!])
+            delegate?.update(image: spaceshipImage)
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -175,5 +176,29 @@ class SpaceshipBuilderController: UIViewController {
         default:
             spaceship.gun.image = nil
         }
+    }
+}
+extension SpaceshipBuilderController {
+    func compositeImages(images: [UIImage]) -> UIImage {
+        var compositeImage: UIImage!
+        if images.count > 0 {
+            let size: CGSize = CGSize(width: images[0].size.width, height: images[0].size.height)
+            UIGraphicsBeginImageContext(size)
+            for image in images {
+                let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+                image.draw(in: rect)
+            }
+            compositeImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+        }
+        
+        return compositeImage
+    }
+    
+    func alert() {
+        let alert = UIAlertController(title: "OUCH :(", message: "Select all elements", preferredStyle: .alert)
+        let button = UIAlertAction(title: "Select", style: .cancel, handler: nil)
+        alert.addAction(button)
+        present(alert, animated: true, completion: nil)
     }
 }

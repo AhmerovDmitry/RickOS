@@ -21,17 +21,17 @@ class BaseViewCell: UICollectionViewCell {
     }()
     // MARK: - Add button
     let addButton: UIButton = {
-        let btn = UIButton(type: .system)
+        let btn = UIButton(type: .custom)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.clipsToBounds = true
-        btn.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 110/255, alpha: 1)
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.black.cgColor
         btn.layer.cornerRadius = 40
+        btn.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 110/255, alpha: 1)
         btn.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
         btn.setTitleColor(.black, for: .normal)
         btn.setTitle("＋", for: .normal)
         btn.titleLabel?.font = UIFont(name: "Futura", size: 40)
-        btn.layer.borderColor = UIColor.black.cgColor
-        btn.layer.borderWidth = 1
         
         return btn
     }()
