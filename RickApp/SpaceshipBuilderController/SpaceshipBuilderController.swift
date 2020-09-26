@@ -33,6 +33,7 @@ class SpaceshipBuilderController: UIViewController {
     let saveButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.tintColor = .white
         btn.setTitle("Save", for: .normal)
         btn.backgroundColor = .darkGray
         btn.layer.cornerRadius = 25
@@ -49,6 +50,27 @@ class SpaceshipBuilderController: UIViewController {
             delegate?.update(image: spaceshipImage)
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    let randomButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.tintColor = .white
+        btn.backgroundColor = .lightGray
+        btn.setImage(UIImage(systemName: "questionmark"), for: .normal)
+        btn.backgroundColor = .clear
+        btn.addTarget(self, action: #selector(randomSpaceship), for: .touchUpInside)
+        
+        return btn
+    }()
+    
+    @objc func randomSpaceship() {
+        wing.selectedSegmentIndex = Int.random(in: 1...10)
+        cockpit.selectedSegmentIndex = Int.random(in: 1...10)
+        gun.selectedSegmentIndex = Int.random(in: 1...10)
+        changeWing()
+        changeCockpit()
+        changeGun()
     }
     
     override func viewDidLoad() {
@@ -83,6 +105,13 @@ class SpaceshipBuilderController: UIViewController {
             saveButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
             saveButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         })
+        
+        view.addSubview(randomButton)
+        randomButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        randomButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        randomButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
+        randomButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5).isActive = true
+        
         //MARK: - Label for UISegmentedControl
         wingsLabel.text = "Wings"
         cockpitsLabel.text = "Cockpit"
