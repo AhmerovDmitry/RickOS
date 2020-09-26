@@ -38,6 +38,9 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
 // MARK: - @objc extension for button
 @objc extension DetailPopController {
     func memoryButton() {
+        if let url = URL(string:UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     func cloningButton() {
     }

@@ -172,6 +172,13 @@ class ChatViewController: UIViewController {
         tableView.dataSource = self
         textView.delegate = self
         
+        if messages.count > 0 {
+            tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+        } else {
+            print(":(")
+            print(messages)
+        }
+        
         view.addSubview(backgroundView)
         [tableView, topLabel, bottomLabel].forEach({ backgroundView.addSubview($0) })
         [backButton, removeButton].forEach({ topLabel.addSubview($0) })
