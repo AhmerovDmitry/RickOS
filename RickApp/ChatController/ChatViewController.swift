@@ -63,7 +63,8 @@ class ChatViewController: UIViewController {
         btn.backgroundColor = .clear
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(done), for: .touchUpInside)
-        btn.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+        btn.setImage(UIImage(systemName: "arrow.up.circle"), for: .normal)
+        btn.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .highlighted)
         btn.tintColor = .white
         btn.contentEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
         btn.contentHorizontalAlignment = .fill
@@ -119,6 +120,7 @@ class ChatViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(back), for: .touchUpInside)
         btn.setImage(UIImage(systemName: "multiply.circle"), for: .normal)
+        btn.setImage(UIImage(systemName: "multiply.circle.fill"), for: .highlighted)
         btn.tintColor = .white
         btn.contentEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
         btn.contentHorizontalAlignment = .fill
@@ -134,6 +136,7 @@ class ChatViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(removeData), for: .touchUpInside)
         btn.setImage(UIImage(systemName: "trash"), for: .normal)
+        btn.setImage(UIImage(systemName: "trash.fill"), for: .highlighted)
         btn.tintColor = .white
         btn.contentEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
         btn.contentHorizontalAlignment = .fill
@@ -171,13 +174,6 @@ class ChatViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         textView.delegate = self
-        
-        if messages.count > 0 {
-            tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
-        } else {
-            print(":(")
-            print(messages)
-        }
         
         view.addSubview(backgroundView)
         [tableView, topLabel, bottomLabel].forEach({ backgroundView.addSubview($0) })

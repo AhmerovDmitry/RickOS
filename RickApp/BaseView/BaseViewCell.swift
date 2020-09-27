@@ -41,23 +41,15 @@ class BaseViewCell: UICollectionViewCell {
         
         [cellButton, addButton].forEach( { contentView.addSubview($0) })
         
-        cellButton.topAnchor.constraint(equalTo: contentView.topAnchor,
-                                        constant: 5).isActive = true
-        cellButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                            constant: 5).isActive = true
-        cellButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-                                             constant: -5).isActive = true
-        cellButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                           constant: -85).isActive = true
+        cellButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+        cellButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5).isActive = true
+        cellButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        cellButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
-        addButton.topAnchor.constraint(equalTo: contentView.topAnchor,
-                                        constant: 0).isActive = true
-        addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                            constant: 85).isActive = true
-        addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-                                             constant: 0).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                           constant: -85).isActive = true
+        addButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        addButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
+        addButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
 
     required init?(coder: NSCoder) {

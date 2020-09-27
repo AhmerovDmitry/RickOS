@@ -57,7 +57,8 @@ class SpaceshipBuilderController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.tintColor = .white
         btn.backgroundColor = .lightGray
-        btn.setImage(UIImage(systemName: "questionmark"), for: .normal)
+        btn.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        btn.setImage(UIImage(systemName: "questionmark.circle.fill"), for: .highlighted)
         btn.backgroundColor = .clear
         btn.addTarget(self, action: #selector(randomSpaceship), for: .touchUpInside)
         

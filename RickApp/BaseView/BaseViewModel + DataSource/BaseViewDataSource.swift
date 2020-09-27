@@ -8,14 +8,14 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         case 0, 4: cellSize = CGSize(width: 160, height: 160)
         default: cellSize = CGSize(width: 80, height: 160)
         }
-
+        
         return cellSize
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BaseViewCell
         cell.data = self.data[indexPath.item]
