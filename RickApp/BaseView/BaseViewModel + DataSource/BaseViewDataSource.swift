@@ -45,7 +45,7 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.cellButton.isHidden = false
             cell.backgroundColor = UIColor.white
             cell.cellButton.removeTarget(nil, action: nil, for: .allEvents)
-            cell.cellButton.addTarget(self, action: #selector(showPrint), for: .touchUpInside)
+            cell.cellButton.addTarget(self, action: #selector(showSpaceMapController), for: .touchUpInside)
         case 4:
             cell.addButton.isHidden = false
             cell.cellButton.isHidden = true
@@ -71,7 +71,9 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         present(spaceshipBuilder, animated: true)
     }
     
-    func showPrint() {
-        print("Pistol button")
+    func showSpaceMapController() {
+        let spaceMapController = SpaceMapController()
+        spaceMapController.modalPresentationStyle = .overFullScreen
+        present(spaceMapController, animated: true)
     }
 }

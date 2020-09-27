@@ -17,7 +17,7 @@ class SpaceshipBuilderController: UIViewController {
         sv.alignment = .center
         sv.axis = .vertical
         sv.spacing = 25
-
+        
         return sv
     }()
     
@@ -26,7 +26,7 @@ class SpaceshipBuilderController: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = .vertical
         sv.spacing = 5
-
+        
         return sv
     }()
     
@@ -99,7 +99,7 @@ class SpaceshipBuilderController: UIViewController {
             imageStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             imageStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
             imageStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-
+            
             spaceship.wing.widthAnchor.constraint(equalToConstant: 300).isActive = true
             spaceship.wing.heightAnchor.constraint(equalToConstant: 300).isActive = true
             
