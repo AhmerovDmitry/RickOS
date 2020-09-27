@@ -2,7 +2,7 @@ import UIKit
 
 class DetailPopController: UIViewController {
     let data = [
-        DetailPopData(text: "Memory"),
+        DetailPopData(text: "Settings"),
         DetailPopData(text: "Cloning"),
         DetailPopData(text: "Call Jessica"),
         DetailPopData(text: "..."),

@@ -33,7 +33,6 @@ class ChatViewCell: UITableViewCell {
         messageText.textColor = .white
         messageText.topAnchor.constraint(equalTo: topAnchor, constant: 32).isActive = true
         messageText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32).isActive = true
-        messageText.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
         
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
@@ -44,9 +43,7 @@ class ChatViewCell: UITableViewCell {
         messageLabel.bottomAnchor.constraint(equalTo: messageText.bottomAnchor, constant: 16).isActive = true
         
         leadingConstraint = messageText.leftAnchor.constraint(equalTo: leftAnchor, constant: 32)
-        leadingConstraint.isActive = false
         trailingConstraint = messageText.rightAnchor.constraint(equalTo: rightAnchor, constant: -32)
-        trailingConstraint.isActive = true
         
     }
     required init?(coder: NSCoder) {

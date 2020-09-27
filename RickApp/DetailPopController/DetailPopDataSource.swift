@@ -38,6 +38,9 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
 // MARK: - @objc extension for button
 @objc extension DetailPopController {
     func memoryButton() {
+        if let url = URL(string:UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     func cloningButton() {
     }
@@ -51,6 +54,8 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
         print("View bounds - \(view.bounds)")
         print("View frame - \(view.frame)")
         print(collectionView.bounds)
+        print(BaseViewCell().cellButton.bounds.size)
+        print(BaseViewCell().addButton.bounds.size)
     }
     func chatRickButton() {
         let chatView = ChatViewController()

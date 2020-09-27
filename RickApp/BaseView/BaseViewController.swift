@@ -3,9 +3,8 @@ import UIKit
 // MARK: - BaseViewController
 class BaseViewController: UIViewController {
     // MARK: - Properties
-    static let cellCornerRadius: CGFloat = 40
     var isMove = false
-    let data = [
+    var data = [
         BaseViewData(text: "", image: nil),
         BaseViewData(text: "", image: UIImage(named: "mortyImage")),
         BaseViewData(text: "", image: UIImage(named: "rocketImage")),
@@ -13,7 +12,7 @@ class BaseViewController: UIViewController {
         BaseViewData(text: "", image: nil)
     ]
     // MARK: - collectionView
-    fileprivate let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -55,5 +54,12 @@ class BaseViewController: UIViewController {
     
     deinit {
         print("BaseViewController - deinit")
+    }
+}
+// MARK: - Delegate method
+extension BaseViewController: BaseViewControllerDelegate {
+    func update(image: UIImage) {
+        data[2].image = image
+        collectionView.reloadData()
     }
 }
