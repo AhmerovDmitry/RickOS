@@ -43,6 +43,7 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
         }
     }
     func cloningButton() {
+        chooseImage(source: .photoLibrary)
     }
     func callJessicaButton() {
         guard let url = URL(string: "tel://+79834102463") else { return }
@@ -61,5 +62,17 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
         let chatView = ChatViewController()
         chatView.modalPresentationStyle = .overFullScreen
         present(chatView, animated: true)
+    }
+}
+
+extension DetailPopController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func chooseImage(source: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
 }
