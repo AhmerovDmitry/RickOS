@@ -62,9 +62,6 @@ extension BaseViewController: BaseViewControllerDelegate {
         data[2].image = image
         collectionView.reloadData()
     }
-}
-
-extension BaseViewController: DetailPopControllerDelegate {
     func update(avatar: UIImage) {
         data[1].image = avatar
         collectionView.reloadData()

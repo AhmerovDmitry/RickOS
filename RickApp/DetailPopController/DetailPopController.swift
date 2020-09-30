@@ -1,8 +1,7 @@
 import UIKit
 
 class DetailPopController: UIViewController {
-    weak var delegate: DetailPopControllerDelegate?
-    let imagePicker = UIImagePickerController()
+    weak var delegate: BaseViewControllerDelegate?
     let data = [
         DetailPopData(text: "Settings"),
         DetailPopData(text: "Cloning"),

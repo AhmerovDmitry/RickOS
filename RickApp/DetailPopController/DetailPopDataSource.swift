@@ -72,7 +72,17 @@ extension DetailPopController: UIImagePickerControllerDelegate, UINavigationCont
             imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = source
-            self.present(imagePicker, animated: true, completion: nil)
+            imagePicker.modalPresentationStyle = .fullScreen
+            present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            //delegate?.update(avatar: image)
+            let image = UIImage(systemName: "trash")
+            delegate?.update(avatar: image!)
+        //}
+        dismiss(animated: true, completion: nil)
     }
 }

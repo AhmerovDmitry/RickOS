@@ -13,7 +13,6 @@
 		BC2DFED6251A3767002C87EE /* BaseViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DFED5251A3767002C87EE /* BaseViewDelegate.swift */; };
 		BC3D1E41251885C4000EABD3 /* SpaceshipBuilderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */; };
 		BC87E8A2252336A100EA5348 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC87E8A1252336A100EA5348 /* MapKit.framework */; };
-		BC8AA3F02524D40600889F42 /* DetailPopControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AA3EF2524D40600889F42 /* DetailPopControllerDelegate.swift */; };
 		BC9B332925188D4F0047014D /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC9B332725188D4F0047014D /* CoreDataModel.xcdatamodeld */; };
 		BC9B332C251890870047014D /* ChatViewCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9B332B251890870047014D /* ChatViewCoreData.swift */; };
 		BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB2250A1967005171CC /* ChatViewCell.swift */; };
@@ -40,7 +39,6 @@
 		BC2DFED5251A3767002C87EE /* BaseViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewDelegate.swift; sourceTree = "<group>"; };
 		BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderController.swift; sourceTree = "<group>"; };
 		BC87E8A1252336A100EA5348 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		BC8AA3EF2524D40600889F42 /* DetailPopControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopControllerDelegate.swift; sourceTree = "<group>"; };
 		BC9B332825188D4F0047014D /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BC9B332B251890870047014D /* ChatViewCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCoreData.swift; sourceTree = "<group>"; };
 		BCC18BB2250A1967005171CC /* ChatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				BCF38DC72503C8D000C949A0 /* DetailPopController.swift */,
 				BCF38DC92503C8F700C949A0 /* DetailPopCell.swift */,
 				BCF38DCB2503C90500C949A0 /* DetailPopDataSource.swift */,
-				BC8AA3EF2524D40600889F42 /* DetailPopControllerDelegate.swift */,
 			);
 			path = DetailPopController;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 				BCF38DC52503C77400C949A0 /* AnimationChildView.swift in Sources */,
 				BC23A8C02521210700761849 /* SpaceMapController.swift in Sources */,
 				BC0FAC50250561D100DB1A11 /* ChatViewController.swift in Sources */,
-				BC8AA3F02524D40600889F42 /* DetailPopControllerDelegate.swift in Sources */,
 				BCF38DBD2503C66900C949A0 /* BaseViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

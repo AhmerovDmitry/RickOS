@@ -64,6 +64,8 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 @objc extension BaseViewController {
     func showDetailController() {
         isMove = !isMove
+        let detail = DetailPopController()
+        detail.delegate = self
         showChildController(shouldMove: isMove)
     }
     
