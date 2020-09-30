@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-eZ-F2O">
-                                <rect key="frame" x="197" y="357" width="20" height="22"/>
+                                <rect key="frame" x="197" y="357" width="21" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="questionmark.circle.fill" catalog="system"/>
+                                <state key="normal" image="airplane" catalog="system"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -31,6 +31,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="airplane" catalog="system" width="128" height="115"/>
     </resources>
 </document>

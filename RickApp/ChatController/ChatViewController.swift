@@ -107,7 +107,7 @@ class ChatViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.textAlignment = .center
-        label.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        label.backgroundColor = UIColor(red: 16/255, green: 16/255, blue: 16/255, alpha: 1)
         label.text = "Rick Sanchez"
         label.isUserInteractionEnabled = true
         
@@ -159,7 +159,6 @@ class ChatViewController: UIViewController {
         tableView.reloadData()
     }
 
-    
     @objc func back() {
         dismiss(animated: true)
     }

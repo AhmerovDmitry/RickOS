@@ -36,6 +36,7 @@ class DetailPopController: UIViewController {
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.cornerRadius = 40
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         
         view.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true

@@ -12,6 +12,7 @@
 		BC23A8C02521210700761849 /* SpaceMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC23A8BF2521210700761849 /* SpaceMapController.swift */; };
 		BC2DFED6251A3767002C87EE /* BaseViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DFED5251A3767002C87EE /* BaseViewDelegate.swift */; };
 		BC3D1E41251885C4000EABD3 /* SpaceshipBuilderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */; };
+		BC87E8A2252336A100EA5348 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC87E8A1252336A100EA5348 /* MapKit.framework */; };
 		BC9B332925188D4F0047014D /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC9B332725188D4F0047014D /* CoreDataModel.xcdatamodeld */; };
 		BC9B332C251890870047014D /* ChatViewCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9B332B251890870047014D /* ChatViewCoreData.swift */; };
 		BCC18BB3250A1967005171CC /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC18BB2250A1967005171CC /* ChatViewCell.swift */; };
@@ -37,6 +38,7 @@
 		BC23A8BF2521210700761849 /* SpaceMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapController.swift; sourceTree = "<group>"; };
 		BC2DFED5251A3767002C87EE /* BaseViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewDelegate.swift; sourceTree = "<group>"; };
 		BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderController.swift; sourceTree = "<group>"; };
+		BC87E8A1252336A100EA5348 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BC9B332825188D4F0047014D /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BC9B332B251890870047014D /* ChatViewCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCoreData.swift; sourceTree = "<group>"; };
 		BCC18BB2250A1967005171CC /* ChatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC87E8A2252336A100EA5348 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +108,14 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		BC87E8A0252336A100EA5348 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC87E8A1252336A100EA5348 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BCF045FB2503F693003BBF99 /* BaseViewModel + DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +133,7 @@
 				BCF38DB82503C53100C949A0 /* App + Scene */,
 				BCF38DB72503C50500C949A0 /* SupportingFiles */,
 				BCF38DA12503C4A900C949A0 /* Products */,
+				BC87E8A0252336A100EA5348 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

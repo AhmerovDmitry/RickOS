@@ -34,18 +34,21 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.backgroundColor = UIColor.white
             cell.cellButton.removeTarget(nil, action: nil, for: .allEvents)
             cell.cellButton.addTarget(self, action: #selector(showDetailController), for: .touchUpInside)
+            cell.cellButton.setImage(UIImage(systemName: "person.fill"), for: .highlighted)
         case 2:
             cell.addButton.isHidden = true
             cell.cellButton.isHidden = false
             cell.backgroundColor = UIColor.white
             cell.cellButton.removeTarget(nil, action: nil, for: .allEvents)
             cell.cellButton.addTarget(self, action: #selector(showSpaceshipBuilderController), for: .touchUpInside)
+            cell.cellButton.setImage(self.data[2].image, for: .highlighted)
         case 3:
             cell.addButton.isHidden = true
             cell.cellButton.isHidden = false
             cell.backgroundColor = UIColor.white
             cell.cellButton.removeTarget(nil, action: nil, for: .allEvents)
             cell.cellButton.addTarget(self, action: #selector(showSpaceMapController), for: .touchUpInside)
+            cell.cellButton.setImage(UIImage(systemName: "map.fill"), for: .highlighted)
         case 4:
             cell.addButton.isHidden = false
             cell.cellButton.isHidden = true
