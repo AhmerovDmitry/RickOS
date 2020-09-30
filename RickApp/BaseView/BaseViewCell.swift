@@ -10,12 +10,16 @@ class BaseViewCell: UICollectionViewCell {
     }
     // MARK: - Button Settings
     let cellButton: UIButton = {
-        let btn = UIButton(type: .custom)
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.clipsToBounds = true
+        btn.tintColor = UIColor.black
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.black.cgColor
         btn.layer.cornerRadius = 35
+        btn.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        btn.contentHorizontalAlignment = .fill
+        btn.contentVerticalAlignment = .fill
         
         return btn
     }()

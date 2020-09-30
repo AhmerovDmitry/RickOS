@@ -27,12 +27,13 @@ class ChatViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         [messageLabel, messageText].forEach({ addSubview($0) })
-        
+
         messageText.translatesAutoresizingMaskIntoConstraints = false
         messageText.numberOfLines = 0
         messageText.textColor = .white
         messageText.topAnchor.constraint(equalTo: topAnchor, constant: 32).isActive = true
         messageText.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32).isActive = true
+        messageText.widthAnchor.constraint(lessThanOrEqualToConstant: 300).isActive = true
         
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
