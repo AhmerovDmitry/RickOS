@@ -43,10 +43,14 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
         }
     }
     func cloningButton() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
+//        let imagePicker = UIImagePickerController()
+//        imagePicker.delegate = self
+//        imagePicker.allowsEditing = true
+//        imagePicker.sourceType = .photoLibrary
+//        imagePicker.modalPresentationStyle = .fullScreen
+//        present(imagePicker, animated: true, completion: nil)
+        let imagePicker = ImagePickerController()
+        //imagePicker.delegate = self
         imagePicker.modalPresentationStyle = .fullScreen
         present(imagePicker, animated: true, completion: nil)
     }
@@ -65,13 +69,13 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
 }
 
-extension DetailPopController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let editedImage = info[.editedImage] as? UIImage {
-            self.delegate?.update(avatar: editedImage)
-        } else if let originalImage = info[.originalImage] as? UIImage {
-            self.delegate?.update(avatar: originalImage)
-        }
-        dismiss(animated: true, completion: nil)
-    }
-}
+//extension DetailPopController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let editedImage = info[.editedImage] as? UIImage {
+//            self.delegate?.update(avatar: editedImage)
+//        } else if let originalImage = info[.originalImage] as? UIImage {
+//            self.delegate?.update(avatar: originalImage)
+//        }
+//        dismiss(animated: true, completion: nil)
+//    }
+//}

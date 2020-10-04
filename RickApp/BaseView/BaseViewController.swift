@@ -50,6 +50,8 @@ class BaseViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 0.5).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        ImagePickerController().delegate = self
     }
     
     deinit {

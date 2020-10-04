@@ -10,6 +10,7 @@
 		BC0FAC50250561D100DB1A11 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */; };
 		BC209D662518BE4300AA09D5 /* SpaceshipBuilderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC209D652518BE4300AA09D5 /* SpaceshipBuilderModel.swift */; };
 		BC23A8C02521210700761849 /* SpaceMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC23A8BF2521210700761849 /* SpaceMapController.swift */; };
+		BC28B16C252A3DE700D3F72E /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC28B16B252A3DE700D3F72E /* ImagePickerController.swift */; };
 		BC2DFED6251A3767002C87EE /* BaseViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DFED5251A3767002C87EE /* BaseViewDelegate.swift */; };
 		BC3D1E41251885C4000EABD3 /* SpaceshipBuilderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */; };
 		BC87E8A2252336A100EA5348 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC87E8A1252336A100EA5348 /* MapKit.framework */; };
@@ -36,6 +37,7 @@
 		BC0FAC4F250561D100DB1A11 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BC209D652518BE4300AA09D5 /* SpaceshipBuilderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderModel.swift; sourceTree = "<group>"; };
 		BC23A8BF2521210700761849 /* SpaceMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMapController.swift; sourceTree = "<group>"; };
+		BC28B16B252A3DE700D3F72E /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		BC2DFED5251A3767002C87EE /* BaseViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewDelegate.swift; sourceTree = "<group>"; };
 		BC3D1E40251885C4000EABD3 /* SpaceshipBuilderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipBuilderController.swift; sourceTree = "<group>"; };
 		BC87E8A1252336A100EA5348 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -203,6 +205,7 @@
 				BCF38DC72503C8D000C949A0 /* DetailPopController.swift */,
 				BCF38DC92503C8F700C949A0 /* DetailPopCell.swift */,
 				BCF38DCB2503C90500C949A0 /* DetailPopDataSource.swift */,
+				BC28B16B252A3DE700D3F72E /* ImagePickerController.swift */,
 			);
 			path = DetailPopController;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				BCF38DC52503C77400C949A0 /* AnimationChildView.swift in Sources */,
 				BC23A8C02521210700761849 /* SpaceMapController.swift in Sources */,
 				BC0FAC50250561D100DB1A11 /* ChatViewController.swift in Sources */,
+				BC28B16C252A3DE700D3F72E /* ImagePickerController.swift in Sources */,
 				BCF38DBD2503C66900C949A0 /* BaseViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
