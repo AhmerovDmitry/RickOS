@@ -34,14 +34,12 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.backgroundColor = UIColor.white
             cell.cellButton.removeTarget(nil, action: nil, for: .allEvents)
             cell.cellButton.addTarget(self, action: #selector(showDetailController), for: .touchUpInside)
-            cell.cellButton.setImage(UIImage(systemName: "person.fill"), for: .highlighted)
         case 2:
             cell.addButton.isHidden = true
             cell.cellButton.isHidden = false
             cell.backgroundColor = UIColor.white
             cell.cellButton.removeTarget(nil, action: nil, for: .allEvents)
             cell.cellButton.addTarget(self, action: #selector(showSpaceshipBuilderController), for: .touchUpInside)
-            cell.cellButton.setImage(self.data[2].image, for: .highlighted)
         case 3:
             cell.addButton.isHidden = true
             cell.cellButton.isHidden = false
@@ -64,8 +62,6 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 @objc extension BaseViewController {
     func showDetailController() {
         isMove = !isMove
-        let detail = DetailPopController()
-        detail.delegate = self
         showChildController(shouldMove: isMove)
     }
     

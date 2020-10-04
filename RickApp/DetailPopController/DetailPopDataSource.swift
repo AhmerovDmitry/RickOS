@@ -43,7 +43,12 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
         }
     }
     func cloningButton() {
-        chooseImage(source: .photoLibrary)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.modalPresentationStyle = .fullScreen
+        present(imagePicker, animated: true, completion: nil)
     }
     func callJessicaButton() {
         guard let url = URL(string: "tel://+79834102463") else { return }
@@ -52,11 +57,6 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
         }
     }
     func unknownButton() {
-        print("View bounds - \(view.bounds)")
-        print("View frame - \(view.frame)")
-        print(collectionView.bounds)
-        print(BaseViewCell().cellButton.bounds.size)
-        print(BaseViewCell().addButton.bounds.size)
     }
     func chatRickButton() {
         let chatView = ChatViewController()
@@ -66,23 +66,12 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
 }
 
 extension DetailPopController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func chooseImage(source: UIImagePickerController.SourceType) {
-        if UIImagePickerController.isSourceTypeAvailable(source) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = true
-            imagePicker.sourceType = source
-            imagePicker.modalPresentationStyle = .fullScreen
-            present(imagePicker, animated: true, completion: nil)
-        }
-    }
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            //delegate?.update(avatar: image)
-            let image = UIImage(systemName: "trash")
-            delegate?.update(avatar: image!)
-        //}
+        if let editedImage = info[.editedImage] as? UIImage {
+            self.delegate?.update(avatar: editedImage)
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            self.delegate?.update(avatar: originalImage)
+        }
         dismiss(animated: true, completion: nil)
     }
 }

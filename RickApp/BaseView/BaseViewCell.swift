@@ -10,7 +10,7 @@ class BaseViewCell: UICollectionViewCell {
     }
     // MARK: - Button Settings
     let cellButton: UIButton = {
-        let btn = UIButton(type: .system)
+        let btn = UIButton(type: .custom)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.clipsToBounds = true
         btn.tintColor = UIColor.black
