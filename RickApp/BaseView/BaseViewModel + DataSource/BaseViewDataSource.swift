@@ -46,7 +46,6 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.backgroundColor = UIColor.white
             cell.cellButton.removeTarget(nil, action: nil, for: .allEvents)
             cell.cellButton.addTarget(self, action: #selector(showSpaceMapController), for: .touchUpInside)
-            cell.cellButton.setImage(UIImage(systemName: "map.fill"), for: .highlighted)
         case 4:
             cell.addButton.isHidden = false
             cell.cellButton.isHidden = true

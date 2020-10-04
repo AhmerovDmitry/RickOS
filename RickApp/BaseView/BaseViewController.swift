@@ -6,9 +6,9 @@ class BaseViewController: UIViewController {
     var isMove = false
     var data = [
         BaseViewData(text: "", image: nil),
-        BaseViewData(text: "", image: UIImage(named: "mortyImage")),
-        BaseViewData(text: "", image: UIImage(systemName: "airplane")),
-        BaseViewData(text: "", image: UIImage(systemName: "map")),
+        BaseViewData(text: "", image: UIImage(named: "avatar")),
+        BaseViewData(text: "", image: UIImage(named: "spaceship")),
+        BaseViewData(text: "", image: UIImage(named: "map")),
         BaseViewData(text: "", image: nil)
     ]
     // MARK: - collectionView
