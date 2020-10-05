@@ -73,9 +73,8 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func showSpaceMapController() {
-//        let spaceMapController = SpaceMapController()
-//        spaceMapController.modalPresentationStyle = .overFullScreen
-//        present(spaceMapController, animated: true)
-        collectionView.reloadData()
+        let spaceMapController = SpaceMapController()
+        spaceMapController.modalPresentationStyle = .overFullScreen
+        present(spaceMapController, animated: true)
     }
 }
