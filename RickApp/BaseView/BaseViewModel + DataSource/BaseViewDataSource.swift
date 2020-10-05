@@ -29,7 +29,6 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.cellButton.isHidden = true
             cell.backgroundColor = UIColor(red: 77/255, green: 177/255, blue: 177/255, alpha: 1)
             cell.addButton.removeTarget(nil, action: nil, for: .allEvents)
-            cell.addButton.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         case 1:
             cell.addButton.isHidden = true
             cell.cellButton.isHidden = false
@@ -74,12 +73,9 @@ extension BaseViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func showSpaceMapController() {
-        let spaceMapController = SpaceMapController()
-        spaceMapController.modalPresentationStyle = .overFullScreen
-        present(spaceMapController, animated: true)
-    }
-    
-    func reloadData() {
+//        let spaceMapController = SpaceMapController()
+//        spaceMapController.modalPresentationStyle = .overFullScreen
+//        present(spaceMapController, animated: true)
         collectionView.reloadData()
     }
 }

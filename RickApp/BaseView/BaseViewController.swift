@@ -32,10 +32,24 @@ class BaseViewController: UIViewController {
         
         return view
     }()
+    let avatarButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(fetchImage), for: .touchUpInside)
+        btn.setTitle("PRESS", for: .normal)
+        
+        return btn
+    }()
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("BaseViewController - init")
+        
+        backgroundView.addSubview(avatarButton)
+        avatarButton.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 50).isActive = true
+        avatarButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        avatarButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        avatarButton.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
         
         view.addSubview(backgroundView)
         backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
@@ -50,8 +64,6 @@ class BaseViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 0.5).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        ImagePickerController().delegate = self
     }
     
     deinit {
@@ -67,5 +79,14 @@ extension BaseViewController: BaseViewControllerDelegate {
     func update(avatar: UIImage) {
         data[1].image = avatar
         collectionView.reloadData()
+    }
+}
+
+@objc extension BaseViewController {
+    func fetchImage() {
+        let imagePicker = ImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.modalPresentationStyle = .fullScreen
+        present(imagePicker, animated: true, completion: nil)
     }
 }
