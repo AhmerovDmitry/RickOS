@@ -51,11 +51,6 @@ extension DetailPopController: UICollectionViewDelegateFlowLayout, UICollectionV
         }
     }
     func unknownButton() {
-        print("View bounds - \(view.bounds)")
-        print("View frame - \(view.frame)")
-        print(collectionView.bounds)
-        print(BaseViewCell().cellButton.bounds.size)
-        print(BaseViewCell().addButton.bounds.size)
     }
     func chatRickButton() {
         let chatView = ChatViewController()

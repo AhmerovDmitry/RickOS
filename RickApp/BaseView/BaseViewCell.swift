@@ -10,7 +10,7 @@ class BaseViewCell: UICollectionViewCell {
     }
     // MARK: - Button Settings
     let cellButton: UIButton = {
-        let btn = UIButton(type: .system)
+        let btn = UIButton(type: .custom)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.clipsToBounds = true
         btn.tintColor = UIColor.black
@@ -28,8 +28,8 @@ class BaseViewCell: UICollectionViewCell {
         let btn = UIButton(type: .custom)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.clipsToBounds = true
-        btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.black.cgColor
+        btn.layer.borderWidth = 1
         btn.layer.cornerRadius = 40
         btn.backgroundColor = UIColor(red: 255/255, green: 190/255, blue: 110/255, alpha: 1)
         btn.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]

@@ -6,9 +6,9 @@ class BaseViewController: UIViewController {
     var isMove = false
     var data = [
         BaseViewData(text: "", image: nil),
-        BaseViewData(text: "", image: UIImage(systemName: "person")),
-        BaseViewData(text: "", image: UIImage(systemName: "airplane")),
-        BaseViewData(text: "", image: UIImage(systemName: "map")),
+        BaseViewData(text: "", image: UIImage(named: "avatar")),
+        BaseViewData(text: "", image: UIImage(named: "spaceship")),
+        BaseViewData(text: "", image: UIImage(named: "map")),
         BaseViewData(text: "", image: nil)
     ]
     // MARK: - collectionView
@@ -32,10 +32,24 @@ class BaseViewController: UIViewController {
         
         return view
     }()
+    let avatarButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(fetchImage), for: .touchUpInside)
+        btn.setTitle("PRESS", for: .normal)
+        
+        return btn
+    }()
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         print("BaseViewController - init")
+        
+        backgroundView.addSubview(avatarButton)
+        avatarButton.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 50).isActive = true
+        avatarButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        avatarButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        avatarButton.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
         
         view.addSubview(backgroundView)
         backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
@@ -61,5 +75,18 @@ extension BaseViewController: BaseViewControllerDelegate {
     func update(image: UIImage) {
         data[2].image = image
         collectionView.reloadData()
+    }
+    func update(avatar: UIImage) {
+        data[1].image = avatar
+        collectionView.reloadData()
+    }
+}
+
+@objc extension BaseViewController {
+    func fetchImage() {
+        let imagePicker = ImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.modalPresentationStyle = .fullScreen
+        present(imagePicker, animated: true, completion: nil)
     }
 }
